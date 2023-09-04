@@ -1,0 +1,7 @@
+name: "Custom Validation"
+type: module
+description: "Prevents the creation of content with the same title and tags."
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:node

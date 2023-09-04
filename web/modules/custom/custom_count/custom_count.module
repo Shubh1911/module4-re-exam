@@ -1,0 +1,18 @@
+<?php 
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ */
+function custom_count_preprocess_node__news(array &$variables) {
+  // Check if the user is anonymous.
+  if (\Drupal::currentUser()->isAnonymous()) {
+    
+    $node = $variables['node'];
+    if ($node->getType() == 'news') {
+      // Increase the view count for this news article.
+      $current_count = $node->get('field_viewcount')->value;
+      $new_count = $current_count + 1;
+      $node->set('field_viewcount', $new_count);
+      $node->save();
+    }
+  }
+}

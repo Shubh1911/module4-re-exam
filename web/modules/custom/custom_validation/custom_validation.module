@@ -1,0 +1,48 @@
+<?php 
+
+use Drupal\Core\Messenger\MessengerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+/**
+ * Implements hook_entity_presave() for node entities.
+ */
+function custom_validation_node_presave($node) {
+    // Check if the node type is one that requires duplicate content validation.
+    if ($node->getType() == 'news') {
+      // Check if similar content already exists.
+      if (custom_content_validation_content_exists($node)) {
+        // Display an error message.
+        \Drupal::messenger()->addError(('Similar content already exists with the same title and tags.'));
+        // Prevent saving the node.
+        throw new \Exception('Similar content already exists with the same title and tags.');
+      }
+    }
+  }
+  
+  /**
+   * Check similar content already exists.
+   */
+  function custom_content_validation_content_exists($node) {
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', $node->getType())
+      ->condition('title', $node->getTitle())
+      ->condition('status', 0)
+      ->accessCheck(FALSE); 
+  
+    // add tag condition.
+    if ($node->hasField('field_category')) {
+      $tags = $node->get('field_category')->getValue();
+      foreach ($tags as $tag) {
+        $query->condition('field_category', $tag['target_id']);
+      }
+    }
+  
+    // Exclude the current node from the query when editing an existing node.
+    if (!$node->isNew()) {
+      $query->condition('nid', $node->id(), '!=');
+    }
+  
+    $result = $query->execute();
+    return !empty($result);
+  }
+  

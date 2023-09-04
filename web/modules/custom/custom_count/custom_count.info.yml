@@ -1,0 +1,7 @@
+name: 'View Count Module'
+type: module
+description: 'Tracks and increases view counts for news articles.'
+core_version_requirement: ^10 
+package: Custom
+dependencies:
+  - drupal:node
