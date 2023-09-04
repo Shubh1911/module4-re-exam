@@ -1,0 +1,14 @@
+uuid: 93525a8f-0553-4605-aa3e-12a75559ace5
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.reporter_
+  module:
+    - user
+id: user_add_role_action.reporter_
+label: 'Add the Reporter role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: reporter_

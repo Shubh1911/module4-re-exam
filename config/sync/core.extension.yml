@@ -11,10 +11,16 @@ module:
   config: 0
   contact: 0
   contextual: 0
+  custom_count: 0
+  custom_form: 0
+  custom_validation: 0
   datetime: 0
   dblog: 0
+  devel: 0
+  devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
+  entity_type_permissions: 0
   field: 0
   field_ui: 0
   file: 0
@@ -31,8 +37,10 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  publishcontent: 0
   search: 0
   shortcut: 0
+  smtp: 0
   system: 0
   taxonomy: 0
   text: 0

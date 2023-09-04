@@ -1,0 +1,16 @@
+uuid: 21035380-329e-4990-bd10-57eb4f51d872
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+  module:
+    - node
+id: editor
+label: Editor
+weight: 5
+is_admin: null
+permissions:
+  - 'edit any news content'
+  - 'revert news revisions'
+  - 'view news revisions'
