@@ -1,0 +1,16 @@
+uuid: ac1280f7-ac75-4cb6-8cfe-7270caffbc4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+  module:
+    - node
+id: reporter_
+label: Reporter
+weight: 4
+is_admin: null
+permissions:
+  - 'create news content'
+  - 'edit any news content'
+  - 'edit own news content'

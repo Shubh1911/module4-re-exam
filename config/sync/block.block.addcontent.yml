@@ -1,0 +1,34 @@
+uuid: 921800e7-aa8a-439f-a71e-46c5c7fad785
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.add-con
+  module:
+    - system
+    - user
+  theme:
+    - bootstrap
+id: addcontent
+theme: bootstrap
+region: header
+weight: -8
+provider: null
+plugin: 'system_menu_block:add-con'
+settings:
+  id: 'system_menu_block:add-con'
+  label: 'add content'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      reporter_: reporter_

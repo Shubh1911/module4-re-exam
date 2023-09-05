@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implements hook_cron().
+ */
+function custom_blog_cleanup_cron() {
+  $seven_days_ago = strtotime('-7 days');
+  $query = \Drupal::entityQuery('node')
+    ->condition('type', 'news')
+    ->execute();
+
+  foreach ($query as $nid) {
+    $node = \Drupal\node\Entity\Node::load($nid);
+
+    if ($node) {
+     
+      if ($node->hasField('field_featured')) {
+        
+        $current_value = $node->get('field_featured')->value;
+        if ($current_value === TRUE) {
+          $node->set('field_featured', FALSE);
+          $node->save();
+
+        }
+      }
+    }
+  }
+}

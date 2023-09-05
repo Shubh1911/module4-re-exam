@@ -1,0 +1,4 @@
+name: "custom form"
+type: module
+description: "user registration form"
+core_version_requirement: ^10

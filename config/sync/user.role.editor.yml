@@ -1,0 +1,27 @@
+uuid: 21035380-329e-4990-bd10-57eb4f51d872
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+  module:
+    - field_permissions
+    - node
+    - publishcontent
+id: editor
+label: Editor
+weight: 5
+is_admin: null
+permissions:
+  - 'access publish content settings'
+  - 'create field_featured'
+  - 'create field_news_published_date'
+  - 'edit any news content'
+  - 'edit own field_featured'
+  - 'edit own field_news_published_date'
+  - 'publish any content'
+  - 'publish any node type news'
+  - 'publish editable node type news'
+  - 'view all revisions'
+  - 'view news revisions'
+  - 'view own unpublished content'

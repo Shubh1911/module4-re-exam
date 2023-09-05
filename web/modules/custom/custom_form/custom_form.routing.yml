@@ -1,0 +1,7 @@
+custom-user-form:
+  path: "/contact-us"
+  defaults:
+    _form: '\Drupal\custom_form\Form\CustomUserDetails'
+    _title: "user detail form"
+  requirements:
+    _permission: "access content"

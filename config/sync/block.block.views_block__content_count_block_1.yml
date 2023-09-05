@@ -1,0 +1,29 @@
+uuid: e4557750-53f2-4097-8be1-5c6e54730b8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.content_count
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap
+id: views_block__content_count_block_1
+theme: bootstrap
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_block:content_count-block_1'
+settings:
+  id: 'views_block:content_count-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node
