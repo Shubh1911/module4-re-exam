@@ -1,0 +1,16 @@
+custom_api.display_data:
+  path: "/api/blog-data"
+  defaults:
+    _controller: '\Drupal\custom_api\Controller\CustomApiController::displayData'
+    _format: "json"
+  requirements:
+    _access: "TRUE"
+
+
+custom_api.config_form:
+  path: '/admin/config/custom-api'
+  defaults:
+    _form: '\Drupal\custom_api\Form\CustomApiConfigForm'
+    _title: 'Custom API Settings'
+  requirements:
+    _permission: 'administer site configuration'

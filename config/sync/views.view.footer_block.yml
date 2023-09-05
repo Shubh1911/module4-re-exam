@@ -1,18 +1,14 @@
-uuid: 5232d8d8-99fa-4d6f-a1de-b957255a1638
+uuid: 101e5f5d-2699-4e6e-8f60-1ec703cca157
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
-    - node.type.news
-    - system.menu.main
-    - user.role.administrator
-    - user.role.reporter_
+    - node.type.page
   module:
     - node
     - user
-id: reporter_dashboard
-label: 'Reporter  dashboard'
+id: footer_block
+label: 'Footer Block'
 module: views
 description: ''
 tag: ''
@@ -25,7 +21,6 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Reporter  dashboard'
       fields:
         title:
           id: title
@@ -103,11 +98,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: role
+        type: perm
         options:
-          role:
-            administrator: administrator
-            reporter_: reporter_
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -135,42 +128,13 @@ display:
           id: status
           table: node_field_data
           field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
           entity_type: node
           entity_field: status
           plugin_id: boolean
-          operator: '='
-          value: '0'
+          value: '1'
           group: 1
-          exposed: false
           expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
         type:
           id: type
           table: node_field_data
@@ -179,52 +143,21 @@ display:
           entity_field: type
           plugin_id: bundle
           value:
-            news: news
-        uid_current:
-          id: uid_current
-          table: users
-          field: uid_current
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          plugin_id: user_current
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            page: page
       style:
         type: default
-      row:
-        type: 'entity:node'
         options:
-          view_mode: teaser
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       query:
         type: views_query
         options:
@@ -233,55 +166,15 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships:
-        uid:
-          id: uid
-          table: node_field_data
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: User
-          entity_type: node
-          entity_field: uid
-          plugin_id: standard
-          required: false
+      relationships: {  }
       header: {  }
       footer: {  }
-      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user
         - 'user.node_grants:view'
-        - user.roles
-      tags: {  }
-  page_1:
-    id: page_1
-    display_title: Page
-    display_plugin: page
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: reporter-dashboard
-      menu:
-        type: normal
-        title: reporter-dashboard
-        description: ''
-        weight: 0
-        expanded: false
-        menu_name: main
-        parent: ''
-        context: '0'
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - user
-        - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }

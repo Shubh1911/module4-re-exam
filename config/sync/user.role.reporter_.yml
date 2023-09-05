@@ -12,4 +12,5 @@ weight: 4
 is_admin: null
 permissions:
   - 'create news content'
+  - 'edit any news content'
   - 'edit own news content'

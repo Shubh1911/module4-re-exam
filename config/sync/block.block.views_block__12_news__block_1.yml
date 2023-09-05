@@ -1,0 +1,29 @@
+uuid: 6444b6c3-10cb-4954-a9bd-a21c6bbba874
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.12_news_
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap
+id: views_block__12_news__block_1
+theme: bootstrap
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:12_news_-block_1'
+settings:
+  id: 'views_block:12_news_-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node

@@ -5,12 +5,23 @@ dependencies:
   config:
     - node.type.news
   module:
+    - field_permissions
     - node
+    - publishcontent
 id: editor
 label: Editor
 weight: 5
 is_admin: null
 permissions:
+  - 'access publish content settings'
+  - 'create field_featured'
+  - 'create field_news_published_date'
   - 'edit any news content'
-  - 'revert news revisions'
+  - 'edit own field_featured'
+  - 'edit own field_news_published_date'
+  - 'publish any content'
+  - 'publish any node type news'
+  - 'publish editable node type news'
+  - 'view all revisions'
   - 'view news revisions'
+  - 'view own unpublished content'
